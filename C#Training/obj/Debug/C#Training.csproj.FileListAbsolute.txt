@@ -1,0 +1,7 @@
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\bin\Debug\C#Training.exe.config
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\bin\Debug\C#Training.exe
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\bin\Debug\C#Training.pdb
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\obj\Debug\C#Training.csproj.AssemblyReference.cache
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\obj\Debug\C#Training.csproj.CoreCompileInputs.cache
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\obj\Debug\C#Training.exe
+C:\Users\Bruker\source\repos\TrainingC#\C#Training\obj\Debug\C#Training.pdb
