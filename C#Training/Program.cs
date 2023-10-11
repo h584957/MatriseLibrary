@@ -39,24 +39,22 @@ namespace C_Training
 
             Matrise mat3 = MatriseMath.addisjon(mat1 , mat2);
             mat3.CheckAllRows();
-            mat1.CheckAllRows();
-            Console.WriteLine("Add: mat1 + mat2 = mat3");
-            mat3.PrintMat("mat3: ",true);
-            mat1.PrintMat("mat1: ",true);
+            
+            Console.WriteLine("Addisjon: mat1 + mat2 = mat3");
+            
+            mat3.PrintMat("mat3: ",true);            
             mat3 = MatriseMath.substraksjon(mat3, mat1);
 
             mat3.CheckAllRows();
-            Console.WriteLine("Subtract: mat3 - mat1 = mat3");
+            Console.WriteLine("Subtraksjon: mat3 - mat1 = mat3");
             mat3.PrintMat("mat3: ", true);
 
             Matrise mat4 = MatriseMath.SkalarMultiplikasjon(mat3,3);
 
+            Console.WriteLine("Skalarprodukt: mat3 * 3 = mat4");
+
             mat4.CheckAllRows();
             mat4.PrintMat("mat4: ", true);
-
-            mat3.CheckAllRows();
-            mat3.PrintMat("mat3: ", true);
-
 
 
         }
