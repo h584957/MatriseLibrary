@@ -86,9 +86,6 @@ namespace C_Training
             Matrise c = MatriseMath.Multiplikasjon(a, b);
             c.CheckAllRows();
             c.PrintMat("Mat c: ", true);
-
-
-
         }
     }
 }

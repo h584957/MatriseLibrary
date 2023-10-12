@@ -15,9 +15,6 @@ namespace C_Training
                 return null;
             }
             int aN = a.RowsCount;
-            int aM = a.Mat[0].Columns;
-            
-            int bN = b.RowsCount;
             int bM = b.Mat[0].Columns;
 
             int resultRowsize= aN;
