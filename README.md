@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=A2ZxvT7I8-g
 ################
 ABOUT: 
 Laget et matrise bibliotek uten eksterne bibiliotek
-Består av enkle matematiske metoder 
+Består av enkle matematiske metoder på matriser
 
 prosjektet er under utvikling 
 
