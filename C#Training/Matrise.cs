@@ -78,17 +78,6 @@ namespace C_Training
             }
             allRowsEqualLength=true;
         }
-        public void PrintMat(string name )
-        {
-            Console.WriteLine(name);            
-            foreach (Vektor row in mat)
-            {
-                Console.Write("    ");
-                row.PrintVec();
-                Console.WriteLine();
-            }
-
-        }
         public void RemoveRow(int index){
             rowsCount--;
             Matrise tempMat = new Matrise(rowsCount);
@@ -112,6 +101,17 @@ namespace C_Training
             }
         }
    
+        public void PrintMat(string name )
+        {
+            Console.WriteLine(name);            
+            foreach (Vektor row in mat)
+            {
+                Console.Write("    ");
+                row.PrintVec();
+                Console.WriteLine();
+            }
+
+        }
         public void PrintMat(string name,bool moreInfo)
         {
             Console.WriteLine(name);            

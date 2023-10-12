@@ -31,5 +31,24 @@ namespace C_Training
             return true;
         }
 
+        public static bool multipliable(Matrise a, Matrise b){
+
+                a.CheckAllRows();
+                b.CheckAllRows();
+
+                int bN=b.RowsCount;
+                int aM=a.Mat[0].Columns;
+
+                if(!a.AllRowsEqualLength ||!b.AllRowsEqualLength ){
+                    return false;
+                }
+
+                if(!(aM==bN)){
+                    return false;
+                }
+                
+            return true;
+        }
+
     }
 }

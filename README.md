@@ -7,6 +7,8 @@ REFERENCES:
 
 https://no.wikipedia.org/wiki/Matrise 
 
+https://www.youtube.com/watch?v=A2ZxvT7I8-g
+
 ################
 ABOUT: 
 Laget et matrise bibliotek uten eksterne bibiliotek

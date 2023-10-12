@@ -19,6 +19,10 @@ namespace C_Training
             this.vec = vec;
             this.columns=vec.Length;
         }
+         public Vektor(int size){
+            this.vec = new int[size];
+            this.columns=vec.Length;
+        }
         public int Columns{
             get{return columns;}
             set{columns=value;}

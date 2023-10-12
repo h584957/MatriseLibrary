@@ -21,6 +21,8 @@ namespace C_Training
             Vektor vec2 = new Vektor(new int[]{4,5,6});
             Vektor vec3 = new Vektor(new int[]{7,8,9});
             Vektor vec4 = new Vektor(new int[]{7,8,9});
+           
+            Vektor vec4a = new Vektor(new int[]{7,8,9});
             Vektor[] vecArr = new Vektor[]{vec1,vec2,vec3,vec4};
 
             Matrise mat1 = new Matrise(3);
@@ -55,6 +57,36 @@ namespace C_Training
 
             mat4.CheckAllRows();
             mat4.PrintMat("mat4: ", true);
+
+            Console.WriteLine("Multiply: mat a * mat b = mat c");
+            Matrise a = new Matrise(3);
+            Matrise b = new Matrise(2);
+            
+            Vektor a1 = new Vektor(new int[] { 3, 7});
+            Vektor a2 = new Vektor(new int[] {-1, 5});
+            Vektor a3 = new Vektor(new int[] { 2, 1});
+
+            Vektor b1 = new Vektor(new int[] { 7, 1, 1, 2});
+            Vektor b2 = new Vektor(new int[] { 3, 5, 4,-2});
+
+
+            a.Add(a1);
+            a.Add(a2);
+            a.Add(a3);
+            
+            b.Add(b1);
+            b.Add(b2);
+            
+            a.CheckAllRows();
+            b.CheckAllRows();
+
+            a.PrintMat("Mat a: ", true);
+            b.PrintMat("Mat b: ", true);
+
+            Matrise c = MatriseMath.Multiplikasjon(a, b);
+            c.CheckAllRows();
+            c.PrintMat("Mat c: ", true);
+
 
 
         }
