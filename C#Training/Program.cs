@@ -86,6 +86,10 @@ namespace C_Training
             Matrise c = MatriseMath.Multiplikasjon(a, b);
             c.CheckAllRows();
             c.PrintMat("Mat c: ", true);
+            Matrise d = MatriseMath.SkalarMultiplikasjon(c,10);
+            d.CheckAllRows();
+            d.PrintMat("mat d: ",true);
+
         }
     }
 }

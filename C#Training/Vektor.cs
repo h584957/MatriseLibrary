@@ -41,10 +41,18 @@ namespace C_Training
         }
         public void PrintVec(){
             foreach(int num in vec){
+                if(num <-99 || num>999){
                 Console.Write(num + " ");
+                }
+                else if(num <-9 || num>99){
+                Console.Write(" "+num + " ");
+                }
+                else if(num <0 || num>9){
+                Console.Write("  "+num + " ");
+                }else{
+                Console.Write("   "+num + " ");
+                }
             }
         }
-
-
     }
 }
