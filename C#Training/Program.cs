@@ -39,19 +39,19 @@ namespace C_Training
             mat1.PrintMat("mat1: ",true);
             mat2.PrintMat("mat2: ",true);
 
-            Matrise mat3 = MatriseMath.addisjon(mat1 , mat2);
+            Matrise mat3 = MatriseMath.Add(mat1 , mat2);
             mat3.CheckAllRows();
             
             Console.WriteLine("Addisjon: mat1 + mat2 = mat3");
             
             mat3.PrintMat("mat3: ",true);            
-            mat3 = MatriseMath.substraksjon(mat3, mat1);
+            mat3 = MatriseMath.Substract(mat3, mat1);
 
             mat3.CheckAllRows();
             Console.WriteLine("Subtraksjon: mat3 - mat1 = mat3");
             mat3.PrintMat("mat3: ", true);
 
-            Matrise mat4 = MatriseMath.SkalarMultiplikasjon(mat3,3);
+            Matrise mat4 = MatriseMath.ScalarMultiply(mat3,3);
 
             Console.WriteLine("Skalarprodukt: mat3 * 3 = mat4");
 
@@ -83,12 +83,17 @@ namespace C_Training
             a.PrintMat("Mat a: ", true);
             b.PrintMat("Mat b: ", true);
 
-            Matrise c = MatriseMath.Multiplikasjon(a, b);
+            Matrise c = MatriseMath.Multiply(a, b);
             c.CheckAllRows();
             c.PrintMat("Mat c: ", true);
-            Matrise d = MatriseMath.SkalarMultiplikasjon(c,10);
+            Matrise d = MatriseMath.ScalarMultiply(c,10);
             d.CheckAllRows();
             d.PrintMat("mat d: ",true);
+
+            Matrise aa = new Matrise(4);
+            aa.fillMatrix(0,2);
+            aa.CheckAllRows();
+            aa.PrintMat("mat aa: ",true );
 
         }
     }

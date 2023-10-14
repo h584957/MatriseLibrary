@@ -28,6 +28,12 @@ namespace C_Training
             this.mat = mat;
             rowsCount=mat.Length;
     }
+    public void fillMatrix(int numb, int m){
+        for(int i = 0;i<rowsCount;i++){
+            Vektor temp = new Vektor(m).fillVector(numb,m);
+            Mat[i] = temp;
+        }
+    }
     public bool AllRowsEqualLength{
         get{return allRowsEqualLength;}
         set{allRowsEqualLength=value;}
@@ -126,7 +132,7 @@ namespace C_Training
             PrintMatInfo(moreInfo);
             Console.WriteLine();
         }
-        public void PrintMatInfo(bool moreInfo){
+        private void PrintMatInfo(bool moreInfo){
             if(moreInfo)
             Console.WriteLine("------------------------------------------------------");
             Console.WriteLine(

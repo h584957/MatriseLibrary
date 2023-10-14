@@ -9,7 +9,7 @@ namespace C_Training
     internal class MatriseMath
     {
 
-        public static Matrise Multiplikasjon(Matrise a, Matrise b){
+        public static Matrise Multiply(Matrise a, Matrise b){
             if(!MatriseHelp.multipliable(a,b)){
                 Console.WriteLine("Mat A is not multipliable with Mat B");
                 return null;
@@ -31,28 +31,26 @@ namespace C_Training
                     Vektor toBeSum = new Vektor(tempMultiplyVectors(colA, rowB).Vec);
                     resultMat.Mat[resultIndex].Vec[i]=sumVec(toBeSum);
                 }
-
             }
 
             return resultMat;
         }
-        public static Matrise SkalarMultiplikasjon(Matrise a, int skalar){
+        public static Matrise ScalarMultiply(Matrise a, int scalar){
             Matrise resultMat = new Matrise(a.RowsCount);
             for(int i = 0; i<resultMat.RowsCount;i++){
                 Vektor vec= new Vektor(new int[a.Mat[i].Columns]);
                 for(int j=0;j<a.Mat[i].Vec.Length;j++){
 
-                vec.Vec[j]=skalar*a.Mat[i].Vec[j];
+                vec.Vec[j]=scalar*a.Mat[i].Vec[j];
                 resultMat.Mat[i] = vec;
                 }
             }
 
             return resultMat;
         }
-        public static Matrise addisjon(Matrise a, Matrise b)
+        public static Matrise Add(Matrise a, Matrise b)
         {
             int rowM = a.RowsCount;
-            int colN = a.Mat[0].Columns;
             Matrise sum = new Matrise(rowM);
             
             if(MatriseHelp.Addable(a,b)){
@@ -66,7 +64,7 @@ namespace C_Training
 
             return sum;
         }
-        public static Matrise substraksjon(Matrise a,Matrise b){
+        public static Matrise Substract(Matrise a,Matrise b){
             int colN = a.Mat[0].Columns;
             int rowM = a.RowsCount;
             Matrise sum = new Matrise(rowM);

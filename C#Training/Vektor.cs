@@ -32,7 +32,14 @@ namespace C_Training
             get{return vec;}
             set{vec = value;}
         }
-      
+        public Vektor fillVector(int numb, int size){
+            Vektor newVec = new Vektor(size);
+            foreach(int index in newVec.Vec){
+                newVec.Vec[index]=numb;
+            }
+
+            return newVec;
+        }
         public void PrintVec(string name){
             Console.WriteLine(name);
             foreach(int num in vec){
