@@ -95,6 +95,11 @@ namespace C_Training
             aa.CheckAllRows();
             aa.PrintMat("mat aa: ",true );
 
+            Vektor v1 = new Vektor(new int[] { 3, 5, 4,-2});
+            Vektor v2 = new Vektor(new int[] { 3, 5, 4,-2});
+            v1.Expand(v2);
+            v1.PrintVec("v1: ");
+
         }
     }
 }

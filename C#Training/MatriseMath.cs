@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,21 @@ namespace C_Training
 {
     internal class MatriseMath
     {
+        public static Matrise KroneckerProduct(Matrise a, Matrise b){
+            Matrise resultMat = new Matrise(b.RowsCount);
+            Matrise temp = new Matrise(b.RowsCount);
+            
+            for(int i =0;i<b.RowsCount;i++){
+                for(int j =0;j<a.Mat[0].Columns;j++){
+                int scalar = a.Mat[i].Vec[j];
+                temp=ScalarMultiply(b, scalar);
+                // add temp to the resultMatrix correct
 
+                }
+            }
+
+            return resultMat;
+        }
         public static Matrise Multiply(Matrise a, Matrise b){
             if(!MatriseHelp.multipliable(a,b)){
                 Console.WriteLine("Mat A is not multipliable with Mat B");

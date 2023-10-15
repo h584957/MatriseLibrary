@@ -32,13 +32,27 @@ namespace C_Training
             get{return vec;}
             set{vec = value;}
         }
-        public Vektor fillVector(int numb, int size){
+        public void Expand(Vektor vector){
+            Vektor vec = new Vektor(columns+vector.Columns);
+            int startPoint = columns;
+            
+            for(int i = 0;i<columns;i++){
+                vec.Vec[i]=Vec[i];
+            }
+            for(int i = startPoint;i<vec.columns;i++){
+               
+                vec.Vec[i]=vector.Vec[i-startPoint];
+            }
+
+            Vec=vec.Vec;
+        }
+        public void fillVector(int numb, int size){
             Vektor newVec = new Vektor(size);
             foreach(int index in newVec.Vec){
                 newVec.Vec[index]=numb;
             }
 
-            return newVec;
+            Vec=newVec.Vec;
         }
         public void PrintVec(string name){
             Console.WriteLine(name);
