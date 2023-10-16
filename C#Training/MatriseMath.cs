@@ -10,15 +10,32 @@ namespace C_Training
     internal class MatriseMath
     {
         public static Matrise KroneckerProduct(Matrise a, Matrise b){
-            Matrise resultMat = new Matrise(b.RowsCount);
+            Matrise resultMat = new Matrise(b.RowsCount+a.RowsCount);
             Matrise temp = new Matrise(b.RowsCount);
+            int resultMatRowIndex=0;
+            int resultMatColIndex=0;
+            int indexSize = b.Mat[0].Columns;
+            int rowSize = b.RowsCount;
             
+            int resultMatLength = resultMat.RowsCount;
+            int resultMatRowLength = a.Mat[0].Columns + b.Mat[0].Columns;
+
             for(int i =0;i<b.RowsCount;i++){
+                
                 for(int j =0;j<a.Mat[0].Columns;j++){
                 int scalar = a.Mat[i].Vec[j];
                 temp=ScalarMultiply(b, scalar);
-                
                 // add temp to the resultMatrix correct
+                resultMat.Expand(temp,resultMatRowIndex);
+                if(resultMatColIndex<resultMatRowLength){
+                    resultMatColIndex+=indexSize;
+                }else{
+                    resultMatColIndex=0;
+                    resultMatRowIndex+=rowSize;
+                    if(resultMatRowIndex>resultMatLength){
+                        return resultMat;
+                    }
+                }
 
                 }
             }

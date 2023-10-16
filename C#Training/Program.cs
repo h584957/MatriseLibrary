@@ -126,6 +126,8 @@ namespace C_Training
             bb.Expand(dd,3);
             bb.CheckAllRows();
             bb.PrintMat("mat cc: ",true);
+
+            // test KroneckerProduct
             
         
         }
