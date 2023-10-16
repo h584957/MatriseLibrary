@@ -12,13 +12,13 @@ namespace C_Training
         public static Matrise KroneckerProduct(Matrise a, Matrise b){
             Matrise resultMat = new Matrise(b.RowsCount+a.RowsCount);
             Matrise temp = new Matrise(b.RowsCount);
-            int resultMatRowIndex=0;
-            int resultMatColIndex=0;
+            int RowIndex=0;
+            int ColumnIndex=0;
             int indexSize = b.Mat[0].Columns;
             int rowSize = b.RowsCount;
             
-            int resultMatLength = resultMat.RowsCount;
-            int resultMatRowLength = a.Mat[0].Columns + b.Mat[0].Columns;
+            int Length = resultMat.RowsCount;
+            int RowLength = a.Mat[0].Columns + b.Mat[0].Columns;
 
             for(int i =0;i<b.RowsCount;i++){
                 
@@ -26,13 +26,19 @@ namespace C_Training
                 int scalar = a.Mat[i].Vec[j];
                 temp=ScalarMultiply(b, scalar);
                 // add temp to the resultMatrix correct
-                resultMat.Expand(temp,resultMatRowIndex);
-                if(resultMatColIndex<resultMatRowLength){
-                    resultMatColIndex+=indexSize;
+                Console.WriteLine("resultMatColIndex: "+ColumnIndex);
+                Console.WriteLine("resultMatRowIndex: "+RowIndex);
+                Console.WriteLine("resultMatRowLength: "+RowLength);
+                Console.WriteLine("indexSize: "+indexSize);
+                Console.WriteLine("rowSize: "+rowSize);
+
+                resultMat.Expand(temp,RowIndex);
+                if(ColumnIndex<RowLength){
+                    ColumnIndex+=indexSize;
                 }else{
-                    resultMatColIndex=0;
-                    resultMatRowIndex+=rowSize;
-                    if(resultMatRowIndex>resultMatLength){
+                    ColumnIndex=0;
+                    RowIndex+=rowSize;
+                    if(RowIndex>Length){
                         return resultMat;
                     }
                 }

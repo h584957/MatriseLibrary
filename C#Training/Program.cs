@@ -128,6 +128,20 @@ namespace C_Training
             bb.PrintMat("mat cc: ",true);
 
             // test KroneckerProduct
+            Console.WriteLine("KroneckerProduct: ");
+            Matrise xx = new Matrise(2);
+            Matrise yy = new Matrise(2);
+            xx.fillMatrix(2,xx.RowsCount);
+            yy.fillMatrix(2,xx.RowsCount);
+            xx.CheckAllRows();
+            yy.CheckAllRows();
+            xx.PrintMat("Mat xx: ",true);
+            yy.PrintMat("Mat yy: ",true);
+
+            Matrise zz = MatriseMath.KroneckerProduct(xx,yy);
+            zz.CheckAllRows();
+            zz.PrintMat("Mat zz: ", true);
+
             
         
         }

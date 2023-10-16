@@ -50,10 +50,13 @@ namespace C_Training
     }
     public void Expand(Matrise a, int row){
         int aSize = a.rowsCount;
-        int newSize = rowsCount+aSize-(rowsCount-row); 
+        int adjustment = rowsCount-row;
+        int newSize = rowsCount+aSize-adjustment; 
+        Console.WriteLine("Newsize: "+newSize);
         
         Matrise newMat = new Matrise(newSize);
         Matrise m = new Matrise(Mat);
+        
         newMat.Expand(m);
         for(int i=row;i<newMat.rowsCount;i++){
             newMat.Mat[i].ExpandVec(a.Mat[i-row]);
