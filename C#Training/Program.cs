@@ -93,13 +93,41 @@ namespace C_Training
             Matrise aa = new Matrise(4);
             aa.fillMatrix(0,2);
             aa.CheckAllRows();
-            aa.PrintMat("mat aa: ",true );
+            aa.PrintMat("mat aa: ",true);
 
-            Vektor v1 = new Vektor(new int[] { 3, 5, 4,-2});
-            Vektor v2 = new Vektor(new int[] { 3, 5, 4,-2});
-            v1.Expand(v2);
-            v1.PrintVec("v1: ");
+            Matrise bb = new Matrise(3);
+            bb.fillMatrix(1,3);
+            bb.CheckAllRows();
+            bb.PrintMat("mat bb: ",true);
+            
+            Matrise cc = new Matrise(3);
+            cc.fillMatrix(2,3);
+            cc.CheckAllRows();
+            cc.PrintMat("mat cc: ",true);
 
+            Console.WriteLine("Expand: bb ++ cc => bb");
+            bb.Expand(cc);
+            bb.CheckAllRows();
+            bb.PrintMat("mat bb: ",true);
+            
+
+            Matrise dd = new Matrise(3);
+            dd.fillMatrix(5,3);
+            dd.CheckAllRows();
+            dd.PrintMat("mat dd: ",true);
+
+            Console.WriteLine("Expand2: bb ++ dd => bb");
+            bb.Expand2(dd);
+            bb.CheckAllRows();
+            bb.PrintMat("mat bb: ",true);
+
+
+            Console.WriteLine("Expand: bb ++ dd => bb");
+            bb.Expand(dd,3);
+            bb.CheckAllRows();
+            bb.PrintMat("mat cc: ",true);
+            
+        
         }
     }
 }

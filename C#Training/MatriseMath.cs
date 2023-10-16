@@ -17,6 +17,7 @@ namespace C_Training
                 for(int j =0;j<a.Mat[0].Columns;j++){
                 int scalar = a.Mat[i].Vec[j];
                 temp=ScalarMultiply(b, scalar);
+                
                 // add temp to the resultMatrix correct
 
                 }

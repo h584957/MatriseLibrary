@@ -32,7 +32,21 @@ namespace C_Training
             get{return vec;}
             set{vec = value;}
         }
-        public void Expand(Vektor vector){
+
+        public void CheckVec(){
+            Vektor temp = new Vektor();
+            columns=Vec.Length;
+        }
+        private int Count(){
+            int count=0;
+            foreach(int num in Vec){
+                if(num!=null){
+                    count++;
+                }                
+            }
+            return count;
+        }
+        public void ExpandVec(Vektor vector){
             Vektor vec = new Vektor(columns+vector.Columns);
             int startPoint = columns;
             
@@ -40,19 +54,20 @@ namespace C_Training
                 vec.Vec[i]=Vec[i];
             }
             for(int i = startPoint;i<vec.columns;i++){
-               
                 vec.Vec[i]=vector.Vec[i-startPoint];
             }
 
             Vec=vec.Vec;
+            columns=Vec.Length;
         }
         public void fillVector(int numb, int size){
             Vektor newVec = new Vektor(size);
-            foreach(int index in newVec.Vec){
-                newVec.Vec[index]=numb;
+            for(int i = 0;i<size;i++){
+                newVec.Vec[i]=numb;
             }
 
             Vec=newVec.Vec;
+            columns=Vec.Length;
         }
         public void PrintVec(string name){
             Console.WriteLine(name);
