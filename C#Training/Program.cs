@@ -100,32 +100,17 @@ namespace C_Training
             bb.CheckAllRows();
             bb.PrintMat("mat bb: ",true);
             
-            Matrise cc = new Matrise(3);
-            cc.fillMatrix(2,3);
+            Console.WriteLine("Testing Expand(Mat a, int row)");
+            Matrise cc = new Matrise(2);
             cc.CheckAllRows();
-            cc.PrintMat("mat cc: ",true);
-
-            Console.WriteLine("Expand: bb ++ cc => bb");
-            bb.Expand(cc);
-            bb.CheckAllRows();
+            cc.PrintMat("Mat cc: ",true);
             bb.PrintMat("mat bb: ",true);
-            
-
-            Matrise dd = new Matrise(3);
-            dd.fillMatrix(5,3);
-            dd.CheckAllRows();
-            dd.PrintMat("mat dd: ",true);
-
-            Console.WriteLine("Expand2: bb ++ dd => bb");
-            bb.Expand2(dd);
+            bb.Expand(cc,0);
             bb.CheckAllRows();
-            bb.PrintMat("mat bb: ",true);
-
-
-            Console.WriteLine("Expand: bb ++ dd => bb");
-            bb.Expand(dd,3);
-            bb.CheckAllRows();
-            bb.PrintMat("mat cc: ",true);
+            bb.PrintMat("bb expand cc: ",true);
+ 
+            cc.Expand(bb,0);
+            cc.PrintMat("cc expand bb: ",true);
 
             // test KroneckerProduct
             Console.WriteLine("KroneckerProduct: ");

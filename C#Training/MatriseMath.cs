@@ -25,6 +25,7 @@ namespace C_Training
                 for(int j =0;j<a.Mat[0].Columns;j++){
                 int scalar = a.Mat[i].Vec[j];
                 temp=ScalarMultiply(b, scalar);
+                temp.PrintMat("temp: ",true);
                 // add temp to the resultMatrix correct
                 Console.WriteLine("resultMatColIndex: "+ColumnIndex);
                 Console.WriteLine("resultMatRowIndex: "+RowIndex);

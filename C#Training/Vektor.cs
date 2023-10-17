@@ -37,15 +37,6 @@ namespace C_Training
             Vektor temp = new Vektor();
             columns=Vec.Length;
         }
-        private int Count(){
-            int count=0;
-            foreach(int num in Vec){
-                if(num!=null){
-                    count++;
-                }                
-            }
-            return count;
-        }
         public void ExpandVec(Vektor vector){
             Vektor vec = new Vektor(columns+vector.Columns);
             int startPoint = columns;
