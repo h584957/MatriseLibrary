@@ -52,11 +52,9 @@ namespace C_Training
     }
     public void Expand(Matrise a){
         a.CheckAllRows();
-        a.PrintMat("Mat a: ",true);
-        Console.WriteLine("A rowsCount: "+a.rowsCount);
-        Console.WriteLine("rowsCount: "+rowsCount);
+        
         for(int i=0;i<a.rowsCount;i++){
-            Console.WriteLine("index: "+i);
+            
             Mat[i].ExpandVec(a.Mat[i]);
         }
         rowsCount=Mat.Length;
@@ -64,16 +62,19 @@ namespace C_Training
     public void Expand(Matrise a, int row){
         a.CheckAllRows();
         int aSize = a.rowsCount;
-        Console.WriteLine("aSize: "+aSize);
+       
         int matSize = aSize + rowsCount;
         
         Matrise newMat = new Matrise(matSize);
         Matrise m = new Matrise(matSize);
         m.Mat=Mat;
-        m.PrintMat("m: ",true);
-        PrintMat("H: ",true);
         Console.WriteLine("matSize: "+matSize);
+
+        newMat.CheckAllRows();
         newMat.Expand(m);
+        newMat.CheckAllRows();
+
+        newMat.PrintMat("NEW MAT : ",true);
         int index=row;
         for(int i=0;i<a.rowsCount;i++){
             newMat.Mat[index].ExpandVec(a.Mat[i]);
