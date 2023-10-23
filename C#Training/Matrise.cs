@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -35,55 +36,67 @@ namespace C_Training
         get{return allRowsEqualLength;}
         set{allRowsEqualLength=value;}
     }
-        public int RowsCount{
+    public int RowsCount{
             get{return rowsCount;}
             set{rowsCount=value;}
         }
-        public Vektor[] Mat { 
+    public Vektor[] Mat { 
             get { return mat;} 
             set { mat = value;}
         }
-    private int Count(){
-        int counter = 0;
-        foreach(Vektor vec in Mat){
-            counter++;
+    public void setRows(int size){
+        if(size == rowsCount){
+            rowsCount=size;
+            
+        }else if (size < rowsCount){
+            Matrise temp = new Matrise(size);
+            for(int i = 0; i<size;i++){
+                temp.Mat[i] = Mat[i];
+            }
+                Mat=temp.Mat;
+                rowsCount=size;
+        }else{
+            Matrise temp = new Matrise(size);
+            for(int i = 0; i<Mat.Length;i++){
+                temp.Mat[i] = Mat[i];
+            }
+            Mat=temp.Mat;
+            rowsCount=size;
         }
-        return counter;
-    }
+        CheckAllRows();
+    } 
     public void Expand(Matrise a){
         a.CheckAllRows();
+        a.PrintMat("a : ",true);
         
         for(int i=0;i<a.rowsCount;i++){
-            
+        
             Mat[i].ExpandVec(a.Mat[i]);
         }
         rowsCount=Mat.Length;
     }
     public void Expand(Matrise a, int row){
         a.CheckAllRows();
+      
+
+        if(a.rowsCount>rowsCount){
+            setRows(a.rowsCount);
+        }
         int aSize = a.rowsCount;
-       
         int matSize = aSize + rowsCount;
         
         Matrise newMat = new Matrise(matSize);
-        Matrise m = new Matrise(matSize);
-        m.Mat=Mat;
-        Console.WriteLine("matSize: "+matSize);
-
-        newMat.CheckAllRows();
-        newMat.Expand(m);
-        newMat.CheckAllRows();
-
-        newMat.PrintMat("NEW MAT : ",true);
+        newMat.Mat=Mat;
         int index=row;
+
         for(int i=0;i<a.rowsCount;i++){
+
             newMat.Mat[index].ExpandVec(a.Mat[i]);
             index++;
         }
- 
-        Mat=newMat.Mat;
+        setRows(matSize);
+        Mat=newMat.Mat;        
         rowsCount=Mat.Length;
-        CheckAllRows();
     }
     public void Expand2(Matrise a){
         a.CheckAllRows();
@@ -132,8 +145,7 @@ namespace C_Training
         }      
         // Check if all rows have the same column length
         public void CheckAllRows(){
-            int numbOfRows=0;
-            numbOfRows=mat[0].Columns;
+            int numbOfRows=mat[0].Columns;
             
             foreach(Vektor row in mat){
                 row.CheckVec();
@@ -144,7 +156,7 @@ namespace C_Training
                     return;
                 }
             }
-            rowsCount=Count();
+            rowsCount=Mat.Length;
             allRowsEqualLength=true;
         }
         public void RemoveRow(int index){

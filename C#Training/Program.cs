@@ -101,6 +101,7 @@ namespace C_Training
             bb.PrintMat("mat bb: ",true);
             
             Console.WriteLine("Testing Expand(Mat a, int row)");
+            Console.WriteLine("BB Expand CC -> BBCC");
             Matrise cc = new Matrise(2);
             cc.CheckAllRows();
             cc.PrintMat("Mat cc: ",true);
@@ -109,25 +110,27 @@ namespace C_Training
             bb.CheckAllRows();
             bb.PrintMat("bb expand cc: ",true);
  
+            Console.WriteLine("CC Expand BB -> CCBB");
+            cc.PrintMat("cc: ",true);
+            bb.PrintMat("bb: ",true);
+            cc.Expand(bb,0);
             cc.Expand(bb,0);
             cc.PrintMat("cc expand bb: ",true);
 
             // test KroneckerProduct
             Console.WriteLine("KroneckerProduct: ");
-            Matrise xx = new Matrise(2);
-            Matrise yy = new Matrise(2);
-            xx.fillMatrix(2,xx.RowsCount);
+            Matrise xx = new Matrise(3);
+            Matrise yy = new Matrise(3);
+            xx.fillMatrix(3,xx.RowsCount);
             yy.fillMatrix(2,xx.RowsCount);
-            xx.CheckAllRows();
-            yy.CheckAllRows();
+           
             xx.PrintMat("Mat xx: ",true);
             yy.PrintMat("Mat yy: ",true);
 
             Matrise zz = MatriseMath.KroneckerProduct(xx,yy);
-            zz.CheckAllRows();
             zz.PrintMat("Mat zz: ", true);
 
-            
+             
         
         }
     }

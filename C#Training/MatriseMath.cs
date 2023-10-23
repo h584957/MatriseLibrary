@@ -10,41 +10,20 @@ namespace C_Training
     internal class MatriseMath
     {
         public static Matrise KroneckerProduct(Matrise a, Matrise b){
-            Matrise resultMat = new Matrise(b.RowsCount+a.RowsCount);
+            int size = b.RowsCount+a.RowsCount;
+            Matrise resultMat = new Matrise(size);
             Matrise temp = new Matrise(b.RowsCount);
-            int RowIndex=0;
-            int ColumnIndex=0;
-            int indexSize = b.Mat[0].Columns;
-            int rowSize = b.RowsCount;
             
-            int Length = resultMat.RowsCount;
-            int RowLength = a.Mat[0].Columns + b.Mat[0].Columns;
+            temp=ScalarMultiply(b,a.Mat[0].Vec[0]);
 
-            for(int i =0;i<b.RowsCount;i++){
-                
-                for(int j =0;j<a.Mat[0].Columns;j++){
-                int scalar = a.Mat[i].Vec[j];
-                temp=ScalarMultiply(b, scalar);
-                temp.PrintMat("temp: ",true);
-                // add temp to the resultMatrix correct
-                Console.WriteLine("resultMatColIndex: "+ColumnIndex);
-                Console.WriteLine("resultMatRowIndex: "+RowIndex);
-                Console.WriteLine("resultMatRowLength: "+RowLength);
-                Console.WriteLine("indexSize: "+indexSize);
-                Console.WriteLine("rowSize: "+rowSize);
-
-                resultMat.Expand(temp,RowIndex);
-                if(ColumnIndex<RowLength){
-                    ColumnIndex+=indexSize;
-                }else{
-                    ColumnIndex=0;
-                    RowIndex+=rowSize;
-                    if(RowIndex>Length){
-                        return resultMat;
-                    }
+            int colSize = b.Mat[0].Columns;
+            int colLength = a.Mat[0].Columns+b.Mat[0].Columns;
+            int rowSize=b.RowsCount;
+            for(int rowIndex=0;rowIndex<resultMat.Mat.Length;rowIndex+=rowSize){
+                for(int colIndex=0;colIndex<colLength;colIndex+=colSize){
+                    resultMat.Expand(temp,rowIndex); 
                 }
 
-                }
             }
 
             return resultMat;
