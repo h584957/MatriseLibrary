@@ -12,6 +12,9 @@ namespace C_Training
         // Prints matrix with info
         void PrintMat(string name,bool moreInfo);
 
+        // Force set matrix size
+        void setRows(int size);
+
         // Prints matrix
         void PrintMat(string name);
 

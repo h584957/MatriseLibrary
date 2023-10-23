@@ -47,7 +47,6 @@ namespace C_Training
             mat3.PrintMat("mat3: ",true);            
             mat3 = MatriseMath.Substract(mat3, mat1);
 
-            mat3.CheckAllRows();
             Console.WriteLine("Subtraksjon: mat3 - mat1 = mat3");
             mat3.PrintMat("mat3: ", true);
 
@@ -55,7 +54,6 @@ namespace C_Training
 
             Console.WriteLine("Skalarprodukt: mat3 * 3 = mat4");
 
-            mat4.CheckAllRows();
             mat4.PrintMat("mat4: ", true);
 
             Console.WriteLine("Multiply: mat a * mat b = mat c");
@@ -76,59 +74,61 @@ namespace C_Training
             
             b.Add(b1);
             b.Add(b2);
-            
-            a.CheckAllRows();
-            b.CheckAllRows();
 
             a.PrintMat("Mat a: ", true);
             b.PrintMat("Mat b: ", true);
-
+            
+            // test multiply
             Matrise c = MatriseMath.Multiply(a, b);
-            c.CheckAllRows();
+        
             c.PrintMat("Mat c: ", true);
+
+            // test scalarMultiply
             Matrise d = MatriseMath.ScalarMultiply(c,10);
-            d.CheckAllRows();
+            
             d.PrintMat("mat d: ",true);
 
             Matrise aa = new Matrise(4);
             aa.fillMatrix(0,2);
-            aa.CheckAllRows();
             aa.PrintMat("mat aa: ",true);
 
             Matrise bb = new Matrise(3);
             bb.fillMatrix(1,3);
-            bb.CheckAllRows();
             bb.PrintMat("mat bb: ",true);
             
-            Console.WriteLine("Testing Expand(Mat a, int row)");
+            //test Expand
+            Console.WriteLine("Expand(Mat a, int row)");
             Console.WriteLine("BB Expand CC -> BBCC");
             Matrise cc = new Matrise(2);
-            cc.CheckAllRows();
             cc.PrintMat("Mat cc: ",true);
             bb.PrintMat("mat bb: ",true);
             bb.Expand(cc,0);
-            bb.CheckAllRows();
             bb.PrintMat("bb expand cc: ",true);
  
             Console.WriteLine("CC Expand BB -> CCBB");
             cc.PrintMat("cc: ",true);
             bb.PrintMat("bb: ",true);
             cc.Expand(bb,0);
-            cc.Expand(bb,0);
             cc.PrintMat("cc expand bb: ",true);
 
             // test KroneckerProduct
             Console.WriteLine("KroneckerProduct: ");
-            Matrise xx = new Matrise(3);
-            Matrise yy = new Matrise(3);
-            xx.fillMatrix(3,xx.RowsCount);
-            yy.fillMatrix(2,xx.RowsCount);
+            Matrise xx = new Matrise(2);
+            xx.Add(new Vektor(new int[]{1,-4,7}));
+            xx.Add(new Vektor(new int[]{-2,3,3}));
+
+            Matrise yy = new Matrise(4);
+            yy.Add(new Vektor(new int[]{8,-9,-6,5}));
+            yy.Add(new Vektor(new int[]{1,-3,-4,7}));
+            yy.Add(new Vektor(new int[]{2,8,-8,-3}));
+            yy.Add(new Vektor(new int[]{1,2,-5,-1}));
+            
            
             xx.PrintMat("Mat xx: ",true);
             yy.PrintMat("Mat yy: ",true);
 
             Matrise zz = MatriseMath.KroneckerProduct(xx,yy);
-            zz.PrintMat("Mat zz: ", true);
+            zz.PrintMat("Mat Kronecker: ", true);
 
              
         

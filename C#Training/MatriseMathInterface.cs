@@ -20,5 +20,8 @@ namespace C_Training
         // Subtracts two matrixes : A-B = C
         Matrise Substract(Matrise a,Matrise b);
 
+        // Kronecker Product : A x B = C
+        Matrise KroneckerProduct(Matrise a, Matrise b);
+
     }
 }

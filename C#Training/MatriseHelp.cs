@@ -10,19 +10,21 @@ namespace C_Training
 {
     internal class MatriseHelp
     {
-
-        public static bool Addable(Matrise a, Matrise b){
-            
+        public static bool AllRowsEqualCheck(Matrise a, Matrise b){
             a.CheckAllRows();
             b.CheckAllRows();
             if(a.AllRowsEqualLength && b.AllRowsEqualLength){
 
             } else return false;
+            return true;
+        }
+        public static bool Addable(Matrise a, Matrise b){
+            bool check = AllRowsEqualCheck(a,b);
             if(EqualDim(a,b)){
 
             }else return false;
             
-            return true;
+            return check;
         }
         public static bool EqualDim(Matrise a, Matrise b){
             if(a.RowsCount == b.RowsCount && a.Mat[0].Columns == b.Mat[0].Columns ){

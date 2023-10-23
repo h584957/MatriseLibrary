@@ -10,20 +10,27 @@ namespace C_Training
     internal class MatriseMath
     {
         public static Matrise KroneckerProduct(Matrise a, Matrise b){
-            int size = b.RowsCount+a.RowsCount;
+            if(!MatriseHelp.AllRowsEqualCheck(a,b)){
+                Console.WriteLine("KroneckerProduct FAILED");
+                Console.WriteLine("NOT ALL ROWS ARE EQUAL LENGTH! ");
+                return null;
+            }
+            int size = b.RowsCount*a.RowsCount;
             Matrise resultMat = new Matrise(size);
             Matrise temp = new Matrise(b.RowsCount);
-            
-            temp=ScalarMultiply(b,a.Mat[0].Vec[0]);
 
             int colSize = b.Mat[0].Columns;
-            int colLength = a.Mat[0].Columns+b.Mat[0].Columns;
+            int colLength = a.Mat[0].Columns*b.Mat[0].Columns;
             int rowSize=b.RowsCount;
+            int scalarIndex=0;
             for(int rowIndex=0;rowIndex<resultMat.Mat.Length;rowIndex+=rowSize){
+                int i = 0;
                 for(int colIndex=0;colIndex<colLength;colIndex+=colSize){
-                    resultMat.Expand(temp,rowIndex); 
+                    temp=ScalarMultiply(b,a.Mat[scalarIndex].Vec[i]);    
+                    resultMat.Expand(temp,rowIndex);
+                    i++; 
                 }
-
+                scalarIndex++;
             }
 
             return resultMat;
