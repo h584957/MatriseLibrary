@@ -88,6 +88,7 @@ namespace C_Training
             
             d.PrintMat("mat d: ",true);
 
+            // test fillMatrix 
             Matrise aa = new Matrise(4);
             aa.fillMatrix(0,2);
             aa.PrintMat("mat aa: ",true);
