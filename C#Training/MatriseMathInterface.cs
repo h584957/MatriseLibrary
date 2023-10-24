@@ -23,5 +23,12 @@ namespace C_Training
         // Kronecker Product : A x B = C
         Matrise KroneckerProduct(Matrise a, Matrise b);
 
+        // Hadamard Product : A . B = [Aij * Bij], where i and j are indexes
+        Matrise HadamardProduct(Matrise a, Matrise b);
+
+        // Direct Sum : A o B = [ A0 ]
+        //                    = [ 0B ]
+        Matrise DirectSum(Matrise a, Matrise b);
+
     }
 }

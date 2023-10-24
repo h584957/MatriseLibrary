@@ -10,8 +10,7 @@ namespace C_Training
 {
     internal class MatriseMath
     {
-
-        
+   
         public static Matrise DirectSum(Matrise a, Matrise b){
              // check allRowsEqualLength
             if(!MatriseHelp.AllRowsEqualCheck(a,b)){

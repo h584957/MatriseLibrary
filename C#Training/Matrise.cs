@@ -44,6 +44,9 @@ namespace C_Training
             get { return mat;} 
             set { mat = value;}
         }
+    public void Transpose(){
+        
+    }
     public void setRows(int size){
         if(size == rowsCount){
             rowsCount=size;
