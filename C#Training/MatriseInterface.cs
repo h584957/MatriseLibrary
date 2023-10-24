@@ -29,6 +29,9 @@ namespace C_Training
 
         // Fills matris with given number and given Vector size
         void fillMatrix(int numb, int m);
+        
+        // Transposes the matrix, A -> At
+        void Transpose();
 
     }
 }

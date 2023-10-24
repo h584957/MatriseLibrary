@@ -45,7 +45,18 @@ namespace C_Training
             set { mat = value;}
         }
     public void Transpose(){
-        
+        int rows = Mat[0].Columns;
+
+        Matrise temp = new Matrise(rows);
+        temp.fillMatrix(0,rowsCount);
+
+        for(int i = 0;i<rowsCount;i++){
+            for(int j = 0;j<rows;j++){
+                temp.Mat[j].Vec[i]=Mat[i].Vec[j];
+            }
+        }
+
+        Mat=temp.Mat;
     }
     public void setRows(int size){
         if(size == rowsCount){

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -154,6 +155,17 @@ namespace C_Training
 
             Matrise DS = MatriseMath.DirectSum(j,k);
             DS.PrintMat("DirectSum: ",true);
+
+            // test Transpose
+            Matrise tp = new Matrise(2);
+            tp.Add(new Vektor(new int[]{1,3,7}));
+            tp.Add(new Vektor(new int[]{2,4,6}));
+
+            tp.PrintMat("tp: ",true);
+            tp.Transpose();
+            tp.PrintMat("tpTransposed: ",true);
+
+            
 
 
 
