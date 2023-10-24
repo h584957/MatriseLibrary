@@ -131,7 +131,18 @@ namespace C_Training
             Matrise zz = MatriseMath.KroneckerProduct(xx,yy);
             zz.PrintMat("Mat Kronecker: ", true);
 
-             
+            // test hadamardProduct
+            Matrise g = new Matrise(3);
+            Matrise h = new Matrise(3);
+
+            g.fillMatrix(2,g.RowsCount);
+            g.PrintMat("Mat g: ",true);
+            h.fillMatrix(2,h.RowsCount);
+            h.PrintMat("Mat h: ",true);
+
+            Matrise i = MatriseMath.HadamardProduct(g,h);
+            i.PrintMat("HadamardProduct: ",true);
+
         
         }
     }

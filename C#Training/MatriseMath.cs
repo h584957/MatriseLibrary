@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,33 @@ namespace C_Training
 {
     internal class MatriseMath
     {
+
+        public static Matrise HadamardProduct(Matrise a, Matrise b){
+            // check A and B for sameDim
+            if(!MatriseHelp.EqualDim(a,b)){
+                Console.WriteLine("HadamardProduct Failed! ");
+                Console.WriteLine("Mat A and Mat B have different dimensions");
+                return null;
+            }
+            // check allRowsEqualLength
+            if(!MatriseHelp.AllRowsEqualCheck(a,b)){
+                Console.WriteLine("HadamardProduct Failed! ");
+                Console.WriteLine("Not all rows are equal length!");
+                
+                return null;
+            }
+            Matrise resultMat = new Matrise(a.RowsCount);
+            resultMat.fillMatrix(0,resultMat.RowsCount);
+            int colLength = a.Mat[0].Columns;
+
+            for(int row=0;row<resultMat.RowsCount;row++){
+
+                for(int col=0;col<colLength;col++){
+                    resultMat.Mat[row].Vec[col]=a.Mat[row].Vec[col]*b.Mat[row].Vec[col];
+                }
+            }            
+            return resultMat;
+        }
         public static Matrise KroneckerProduct(Matrise a, Matrise b){
             if(!MatriseHelp.AllRowsEqualCheck(a,b)){
                 Console.WriteLine("KroneckerProduct FAILED");
