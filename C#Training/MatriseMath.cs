@@ -11,6 +11,33 @@ namespace C_Training
     internal class MatriseMath
     {
 
+        
+        public static Matrise DirectSum(Matrise a, Matrise b){
+             // check allRowsEqualLength
+            if(!MatriseHelp.AllRowsEqualCheck(a,b)){
+                Console.WriteLine("HadamardProduct Failed! ");
+                Console.WriteLine("Not all rows are equal length!");
+                
+                return null;
+            }
+
+            int matSize = a.RowsCount+b.RowsCount;
+            int colSize = a.Mat[0].Columns+b.Mat[0].Columns;
+            
+            Matrise resultMat = new Matrise(matSize);
+            resultMat.Expand(a);
+            
+            Matrise fillTop = new Matrise(a.RowsCount);
+            fillTop.fillMatrix(0,b.Mat[0].Columns);
+            resultMat.Expand(fillTop,0);
+
+            Matrise fillBot = new Matrise(b.RowsCount);
+            fillBot.fillMatrix(0,a.Mat[0].Columns);
+            resultMat.Expand(fillBot,a.RowsCount);
+            resultMat.Expand(b,a.RowsCount);
+
+            return resultMat;
+        }
         public static Matrise HadamardProduct(Matrise a, Matrise b){
             // check A and B for sameDim
             if(!MatriseHelp.EqualDim(a,b)){

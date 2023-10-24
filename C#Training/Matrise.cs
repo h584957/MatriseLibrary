@@ -67,7 +67,6 @@ namespace C_Training
     } 
     public void Expand(Matrise a){
         a.CheckAllRows();
-        a.PrintMat("a : ",true);
         
         for(int i=0;i<a.rowsCount;i++){
         

@@ -143,6 +143,21 @@ namespace C_Training
             Matrise i = MatriseMath.HadamardProduct(g,h);
             i.PrintMat("HadamardProduct: ",true);
 
+            // test DirectSum 
+            Matrise j = new Matrise(2);
+            Matrise k = new Matrise(3);
+
+            j.fillMatrix(3,j.RowsCount);
+            j.PrintMat("Mat j: ",true);
+            k.fillMatrix(2,k.RowsCount);
+            k.PrintMat("Mat k: ",true);
+
+            Matrise DS = MatriseMath.DirectSum(j,k);
+            DS.PrintMat("DirectSum: ",true);
+
+
+
+
         
         }
     }
