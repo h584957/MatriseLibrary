@@ -45,15 +45,6 @@ namespace C_Training
             set { mat = value;}
         }
 
-    public int Determinant(){
-        int result =0;
-        // check if matrix is a square matrix
-
-        
-
-
-        return result;
-    }
     public void Transpose(){
         int rows = Mat[0].Columns;
 

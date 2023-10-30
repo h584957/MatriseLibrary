@@ -172,22 +172,36 @@ namespace C_Training
             Console.WriteLine();
             bc.PrintVec("Vektor BC: ");
             Console.WriteLine();
-            Console.WriteLine("DotProduct: "+ MatriseMath.DotProduct(ac,bc));
+            Console.WriteLine("DotProduct testing: ");
+            Console.WriteLine("DotProduct => Vec AC dot Vec BC: "+ MatriseMath.DotProduct(ac,bc));
 
             Matrise dp = new Matrise(3);
             dp.Add(ac);
             dp.Add(bc);
             dp.Add(bc);
-            dp.PrintMat("Mat dp",true);
+            dp.PrintMat("Mat ",true);
+            dp.PrintMat("Mat DP",true);
 
             Vektor dpSvar = MatriseMath.DotProduct(ac,dp);
             Console.WriteLine();
-            dpSvar.PrintVec("DotProduct: ");
+            dpSvar.PrintVec("DotProduct => Vec AC dot Mat DP : ");
             Console.WriteLine();
             
-            
+
+            Console.WriteLine("Determinant testing: ");
+            Matrise ma = new Matrise(2);
+            ma.Add(new Vektor(new int[]{1,2}));
+            ma.Add(new Vektor(new int[]{3,4}));
+            ma.PrintMat("Mat ma: ",true);
+            Console.WriteLine("Ma determinant: "+MatriseMath.Determinant(ma));
 
 
+            Matrise detMat = new Matrise(3);
+            detMat.Add(new Vektor(new int[]{2,-3,1}));
+            detMat.Add(new Vektor(new int[]{2,0,-1}));
+            detMat.Add(new Vektor(new int[]{1,4,5}));
+            detMat.PrintMat("Mat detMat: ",true);
+            Console.WriteLine("detMat determinant: "+MatriseMath.Determinant(detMat));
 
         
         }

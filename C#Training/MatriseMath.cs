@@ -10,6 +10,78 @@ namespace C_Training
 {
     internal class MatriseMath
     {
+
+        public static int Determinant(Matrise mat){
+            
+            int determinant=0;
+            if(mat.RowsCount==3){
+                determinant=Determinant3x3(mat);
+            }else if(mat.RowsCount==2){
+                determinant=Determinant2x2(mat);
+            }else{
+                Console.WriteLine("Error!");
+                Console.WriteLine("Matrix is not a 3x3 nor 2x2");
+                return 0;
+            }
+
+            return determinant;
+        }
+        private static int Determinant3x3(Matrise mat){
+            // check if mat is 3x3 Mat;
+            if(!(mat.RowsCount==3 && mat.Mat[0].Columns==3)){
+                Console.WriteLine("Error!");
+                Console.WriteLine("Mat is not a 3x3 Matrix");
+                return 0;
+            }
+            int determinant = 0;
+            Vektor topvec = mat.Mat[0];
+    
+            Matrise a = new Matrise(2);
+            a.fillMatrix(0,2);
+            a.Mat[0].Vec[0]=mat.Mat[1].Vec[1];
+            a.Mat[0].Vec[1]=mat.Mat[1].Vec[2];
+            a.Mat[1].Vec[0]=mat.Mat[2].Vec[1];
+            a.Mat[1].Vec[1]=mat.Mat[2].Vec[2];
+            int da = Determinant2x2(a);
+
+            Matrise b = new Matrise(2);
+            b.fillMatrix(0,2);
+            b.Mat[0].Vec[0]=mat.Mat[1].Vec[0];
+            b.Mat[0].Vec[1]=mat.Mat[1].Vec[2];
+            b.Mat[1].Vec[0]=mat.Mat[2].Vec[0];
+            b.Mat[1].Vec[1]=mat.Mat[2].Vec[2];
+            int db = Determinant2x2(b);
+
+            Matrise c = new Matrise(2);
+            c.fillMatrix(0,2);
+            c.Mat[0].Vec[0]=mat.Mat[1].Vec[0];
+            c.Mat[0].Vec[1]=mat.Mat[1].Vec[1];
+            c.Mat[1].Vec[0]=mat.Mat[2].Vec[0];
+            c.Mat[1].Vec[1]=mat.Mat[2].Vec[1];
+            int dc = Determinant2x2(c);
+
+            determinant=topvec.Vec[0]*da-topvec.Vec[1]*db+topvec.Vec[2]*dc;
+
+            return determinant;
+        }
+        private static int Determinant2x2(Matrise mat){
+            // check if mat is a 2x2 Mat
+            if(!(mat.Mat.Length==2 && mat.Mat[0].Columns == 2)){
+                Console.WriteLine("Error!");
+                Console.WriteLine("Mat is not a 2x2 Matrix");
+                return 0;
+            }
+            int determinant =0;
+
+            int a=mat.Mat[0].Vec[0];
+            int b=mat.Mat[0].Vec[1];
+            int c=mat.Mat[1].Vec[0];
+            int d=mat.Mat[1].Vec[1];
+
+            determinant = a*d-b*c;
+
+            return determinant;
+        }
         public static Vektor DotProduct(Vektor vec, Matrise a){
             // check all rowsAreEqual
             a.CheckAllRows();
