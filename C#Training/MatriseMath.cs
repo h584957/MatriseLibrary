@@ -10,7 +10,38 @@ namespace C_Training
 {
     internal class MatriseMath
     {
-   
+        public static Vektor DotProduct(Vektor vec, Matrise a){
+            // check all rowsAreEqual
+            a.CheckAllRows();
+            if(!a.AllRowsEqualLength){
+                Console.WriteLine("Error!");
+                Console.WriteLine("All rows are not equal in Matrise A");
+                return null;
+            }
+            Vektor svar = new Vektor(a.RowsCount);
+
+            for(int i=0;i<a.RowsCount;i++){
+                svar.Vec[i]=DotProduct(vec,a.Mat[i]);
+            }
+
+            return svar; 
+        }
+        public static int DotProduct(Vektor a, Vektor b){
+            // Vektor size eqial check
+            if(a.Columns!=b.Columns){
+                Console.WriteLine("Error!");
+                Console.WriteLine("Vektor A and Vektor b have different length!");
+                return 0;
+            }
+            int svar = 0; 
+
+            for(int i=0;i<a.Columns;i++){
+                svar+=a.Vec[i]*b.Vec[i];
+            }
+            return svar; 
+        }
+
+        
         public static Matrise DirectSum(Matrise a, Matrise b){
              // check allRowsEqualLength
             if(!MatriseHelp.AllRowsEqualCheck(a,b)){

@@ -165,8 +165,27 @@ namespace C_Training
             tp.Transpose();
             tp.PrintMat("tpTransposed: ",true);
 
-            
+            Vektor ac = new Vektor(new int[]{1,2,3});
+            Vektor bc = new Vektor(new int[]{1,1,1});
+            Console.WriteLine();
+            ac.PrintVec("Vektor AC: ");
+            Console.WriteLine();
+            bc.PrintVec("Vektor BC: ");
+            Console.WriteLine();
+            Console.WriteLine("DotProduct: "+ MatriseMath.DotProduct(ac,bc));
 
+            Matrise dp = new Matrise(3);
+            dp.Add(ac);
+            dp.Add(bc);
+            dp.Add(bc);
+            dp.PrintMat("Mat dp",true);
+
+            Vektor dpSvar = MatriseMath.DotProduct(ac,dp);
+            Console.WriteLine();
+            dpSvar.PrintVec("DotProduct: ");
+            Console.WriteLine();
+            
+            
 
 
 
