@@ -10,7 +10,16 @@ namespace C_Training
 {
     internal class MatriseMath
     {
+        public static Matrise IDMat(int dim){
+            Matrise id = new Matrise(dim);
+            id.fillMatrix(0,dim);
 
+            for(int i =0;i<dim;i++){
+                id.Mat[i].Vec[i]=1;
+            }
+
+            return id; 
+        }
         public static int Determinant(Matrise mat){
             
             int determinant=0;
@@ -64,6 +73,8 @@ namespace C_Training
 
             return determinant;
         }
+
+        
         private static int Determinant2x2(Matrise mat){
             // check if mat is a 2x2 Mat
             if(!(mat.Mat.Length==2 && mat.Mat[0].Columns == 2)){

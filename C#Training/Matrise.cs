@@ -26,6 +26,45 @@ namespace C_Training
         }
         CheckAllRows();
     }
+    private void inverseStruc2x2(){
+        Matrise temp = new Matrise(rowsCount);
+        temp.Mat = Mat;
+
+        int a = Mat[0].Vec[0];
+        int b = Mat[0].Vec[1];
+        int c = Mat[1].Vec[0];
+        int d = Mat[1].Vec[1];
+
+
+        temp.mat[0].Vec[0]=d;
+        temp.mat[0].Vec[1]=-b;
+        temp.mat[1].Vec[0]=-c;
+        temp.mat[1].Vec[1]=a;
+        Console.WriteLine(Mat[0].Vec[0]);
+
+        Mat = temp.Mat;
+        CheckAllRows();
+    }
+    public void Inverse2x2(){
+        
+        inverseStruc2x2();
+        
+        Matrise id = MatriseMath.IDMat(2);
+        Matrise inverse = new Matrise(rowsCount);
+        Matrise current = new Matrise(rowsCount);
+        current.Mat = Mat;
+        
+        int detA = MatriseMath.Determinant(current);
+        Console.WriteLine("DetA: " + detA);
+        int scalar = 1/detA;
+        Console.WriteLine("Scalar: " + scalar);
+
+        inverse=MatriseMath.ScalarMultiply(current,scalar);
+
+        Mat = inverse.Mat;
+        
+    }
+
     public Matrise(Vektor[] mat) {
         this.mat = mat;
         rowsCount=mat.Length;

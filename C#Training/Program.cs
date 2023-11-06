@@ -203,7 +203,16 @@ namespace C_Training
             detMat.PrintMat("Mat detMat: ",true);
             Console.WriteLine("detMat determinant: "+MatriseMath.Determinant(detMat));
 
-        
+            Console.WriteLine("TEST inverse: ");
+            Matrise inve = new Matrise(2);
+            inve.Add(new Vektor(new int[]{1,2}));
+            inve.Add(new Vektor(new int[]{2,3}));
+            inve.PrintMat("Mat inve: ",true);
+
+            inve.Inverse2x2();
+            inve.PrintMat("Mat inve: ",true);
+
+
         }
     }
 }
