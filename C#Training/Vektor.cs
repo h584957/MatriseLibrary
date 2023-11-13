@@ -8,8 +8,8 @@ namespace C_Training
 {
     internal class Vektor
     {
-
         private int[] vec;
+
         private int columns;
         public Vektor(){
             this.vec = new int[0];
